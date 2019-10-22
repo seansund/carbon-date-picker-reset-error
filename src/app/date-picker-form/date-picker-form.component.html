@@ -1,0 +1,56 @@
+<div class="date-picker-form">
+  <div ibmRow class="body-text">
+    <div ibmCol [offsets]="{'lg': 3}" [columnNumbers]="{'lg': 6, 'md': 12, 'sm': 12}">
+      <h1 class="title">Date Picker Error Form</h1>
+      <p>How to reproduce the error:</p>
+      <ol ibmList class="list">
+        <li>Fill out the form and press submit</li>
+        <li>Click om the 'Submit another' link</li>
+        <li>See the error (stack trace in the console and 'reason' and 'additionalInfo' fields have not been reset)</li>
+      </ol>
+    </div>
+  </div>
+  <div ibmRow *ngIf="requestCompleted">
+    <div ibmCol [offsets]="{'lg': 3}" [columnNumbers]="{'lg': 6, 'md': 12, 'sm': 12}">
+      <ibm-tile>
+        The request was submitted. <a (click)="prepareEmptyForm()">Submit another</a>.
+      </ibm-tile>
+    </div>
+  </div>
+  <div ibmRow *ngIf="!requestCompleted">
+    <div ibmCol [offsets]="{'lg': 3}" [columnNumbers]="{'lg': 6, 'md': 12, 'sm': 12}">
+      <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <ibm-label [invalid]="isInvalid('submitterName')" invalidText="Submitter name is required">
+          Submitter name
+          <input ibmText formControlName="submitterName"
+                 placeholder="Enter your name"
+                 required>
+        </ibm-label>
+        <ibm-date-picker
+          class="form-item"
+          formControlName="effectiveDate"
+          label="Effective  Date"
+          [invalid]="isInvalid('effectiveDate')"
+          invalidText="A valid future date is required"
+          dateFormat="m/d/Y"
+          required></ibm-date-picker>
+        <ibm-select
+          label="Reason"
+          class="form-item"
+          formControlName="reason"
+          [invalid]="isInvalid('reason')"
+          invalidText="Reason"
+          required
+          style="margin-top: 0.5rem">
+          <option value="" disabled selected hidden>Choose an option</option>
+          <option *ngFor="let item of reasonCodes" value="{{item}}">{{item}}</option>
+        </ibm-select>
+        <ibm-label label="Additional information" style="margin-top: 0.5rem">
+          Additional information
+          <textarea ibmTextArea formControlName="additionalInfo"></textarea>
+        </ibm-label>
+        <button class="form-button" ibmButton type="submit" size="sm">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
