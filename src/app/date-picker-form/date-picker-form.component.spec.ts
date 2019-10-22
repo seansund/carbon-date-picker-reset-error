@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DatePickerFormComponent } from './date-picker-form.component';
 import {CarbonModule} from '../carbon.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import {DatePickerFormModule} from './date-picker-form.module';
 
 describe('DatePickerFormComponent', () => {
   let component: DatePickerFormComponent;
@@ -10,12 +11,8 @@ describe('DatePickerFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        DatePickerFormComponent
-      ],
       imports: [
-        CarbonModule,
-        ReactiveFormsModule,
+        DatePickerFormModule,
       ]
     })
     .compileComponents();

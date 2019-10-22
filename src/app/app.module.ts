@@ -5,17 +5,15 @@ import {AppComponent} from './app.component';
 import {DatePickerFormComponent} from './date-picker-form/date-picker-form.component';
 import {CarbonModule} from './carbon.module';
 import {ReactiveFormsModule} from '@angular/forms';
-import {ButtonModule} from 'carbon-components-angular';
+import {DatePickerFormModule} from './date-picker-form/date-picker-form.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DatePickerFormComponent
   ],
   imports: [
     BrowserModule,
-    CarbonModule,
-    ReactiveFormsModule,
+    DatePickerFormModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
