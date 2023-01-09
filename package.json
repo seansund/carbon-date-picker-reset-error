@@ -22,7 +22,7 @@
     "@carbon/icons-angular": "^10.4.0",
     "carbon-components": "^10.7.1",
     "carbon-components-angular": "^3.20.1",
-    "luxon": "^1.19.3",
+    "luxon": "^2.5.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
